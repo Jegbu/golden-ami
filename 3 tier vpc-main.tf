@@ -1,11 +1,3 @@
-# EC2 Instance Creation
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-    }
-  }
-}
 # Create VPC resource
 resource "aws_vpc" "jegbu_vpc" {
   cidr_block       = "10.0.0.0/16"
