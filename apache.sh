@@ -1,5 +1,5 @@
-set -e # stop script execution on any error
+sudo yum update # update server(s)
 
 # Install Apache
-yum -y install httpd
+sudo yum -y install httpd
 
