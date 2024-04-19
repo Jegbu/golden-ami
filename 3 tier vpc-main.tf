@@ -88,7 +88,7 @@ resource "aws_route_table_association" "public_subnet_az_2" {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 }
 
 resource "aws_security_group" "example" {
