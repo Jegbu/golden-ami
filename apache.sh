@@ -8,4 +8,4 @@ sudo systemctl enable httpd
 sudo systemctl start httpd
 
 # Add message to created index file in html directory
-echo "Yeah I did that!!" >> /var/www/html/index.html
+sudo bash -c 'echo "Yeah I Justin did that!!!!!" >> /var/www/html/index.html'
