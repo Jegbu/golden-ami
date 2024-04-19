@@ -92,7 +92,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "example" {
-  name        = "example"
+  name        = "jegbu_security_group"
   description = "Example security group"
 
   ingress {
