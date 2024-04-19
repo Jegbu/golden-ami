@@ -197,12 +197,3 @@ resource "aws_route_table_association" "public_subnet_az_2" {
 
 
 
-
-
-
-
-# Associate Private Subnet 2 to Private NACL 2
-resource "aws_network_acl_association" "Private_NACL_2" {
-  network_acl_id = aws_network_acl.NACL_private_2.id
-  subnet_id      = aws_subnet.private_subnet_az_2.id
-}
