@@ -4,9 +4,7 @@
         "type": "amazon-ebs",
         "vpc_filter": {
           "filters": {
-            "tag:Class": "build",
-            "isDefault": "false",
-            "cidr": "/24"
+            "tag:Name": "jegbu_vpc"
           }
         },        
         "region": "us-east-1",
