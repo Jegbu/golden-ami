@@ -125,7 +125,7 @@ resource "aws_security_group" "example" {
   }
 
   tags = {
-    Name = "example"
+    Name = "Jegbu Security Group"
   }
 }
 
