@@ -92,7 +92,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "example" {
-  vpc_id      = aws_vpc.jegbuvpc.id
+  vpc_id      = aws_vpc.jegbu_vpc.id
   name        = "jegbu_security_group"
   description = "Example security group"
 
