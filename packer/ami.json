@@ -6,7 +6,11 @@
           "filters": {
             "tag:Name": "jegbu_vpc"
           }
-        },        
+        }, 
+        "subnet_filter": {
+          "filters": {
+            "tag:Name": "Public Subnet AZ1"
+          },       
         "region": "us-east-1",
         "shared_credentials_file": "~/.aws/credentials",
         "profile": "default",
