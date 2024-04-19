@@ -129,6 +129,11 @@ resource "aws_security_group" "example" {
   }
 }
 
+output "security_group_id" {
+  description = "The ID of the security group"
+  value       = 
+}
+
 
 
 
