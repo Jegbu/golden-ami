@@ -195,11 +195,7 @@ resource "aws_route_table_association" "public_subnet_az_2" {
   route_table_id = aws_route_table.Jegbu.id
 }
 
-# Associate Public Subnet 1 to NACL 1
-resource "aws_network_acl_association" "NACL_1" {
-  network_acl_id = aws_network_acl.NACL_1.id
-  subnet_id      = aws_subnet.public_subnet_az_1.id
-}
+
 
 # Associate Public Subnet 2 to NACL 2
 resource "aws_network_acl_association" "NACL_2" {
