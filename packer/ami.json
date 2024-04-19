@@ -2,6 +2,13 @@
     "builders": [
       {
         "type": "amazon-ebs",
+        "vpc_filter": {
+          "filters": {
+            "tag:Class": "build",
+            "isDefault": "false",
+            "cidr": "/24"
+          }
+        },        
         "region": "us-east-1",
         "shared_credentials_file": "~/.aws/credentials",
         "profile": "default",
