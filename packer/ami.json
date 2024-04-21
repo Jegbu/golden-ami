@@ -11,6 +11,11 @@
           "filters": {
             "tag:Name": "Public Subnet AZ1"
           }
+        },
+        "security_group_filter": {
+          "filters": {
+            "tag:Class": "packer"
+          }
         },       
         "region": "us-east-1",
         "shared_credentials_file": "~/.aws/credentials",
