@@ -23,7 +23,7 @@
         "source_ami_filter": {
           "filters": {
             "virtualization-type": "hvm",
-            "name": "amzn2-ami-hvm-2.0.20220128.1-x86_64-ebs",
+            "name": "amzn2-ami-kernel-5.10-hvm-2.0.20240412.0-x86_64-gp2",
             "root-device-type": "ebs"
           },
           "owners": ["137112412989"],
@@ -42,6 +42,7 @@
       {
           "type": "shell",
           "inline": [
+            "sleep 30",
             "sudo yum update -y",
             "sudo yum install -y httpd",
             "sudo systemctl enable httpd",
