@@ -49,13 +49,6 @@
             "sudo systemctl start httpd",
             "sudo bash -c 'echo \"To err is human, but to really foul things up you need a computer. - Paul R. Ehrlich\" >> /var/www/html/index.html'"
           ]
-      },
-      {
-        "type": "shell",
-        "inline": [
-            "sleep 30",
-            "sudo shutdown -h now"
-        ]
-    }
-  ]
+        }
+    ]
 }
