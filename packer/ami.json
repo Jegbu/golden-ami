@@ -31,7 +31,7 @@
         },
         "instance_type": "t2.micro",
         "ssh_username": "ec2-user",
-        "ami_name": "ubuntu-ami {{timestamp}}",
+        "ami_name": "amazon-linux-ami {{timestamp}}",
         "security_group_id": "sg-0551b6b7b012b6579",
         "associate_public_ip_address": true
       }
