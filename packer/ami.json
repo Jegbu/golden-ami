@@ -32,7 +32,8 @@
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
         "ami_name": "ubuntu-ami {{timestamp}}",
-        "security_group_id": "sg-0551b6b7b012b6579"
+        "security_group_id": "sg-0551b6b7b012b6579",
+        "associate_public_ip_address": true
       }
     ]
 }
