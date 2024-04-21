@@ -42,11 +42,11 @@
       {
           "type": "shell",
           "inline": [
-            "sudo yum update",
-            "sudo yum -y install httpd",
-              "sudo systemctl enable httpd",
-              "sudo systemctl start httpd",
-              "sudo bash -c 'echo \"To err is human, but to really foul things up you need a computer. - Paul R. Ehrlich\" >> /var/www/html/index.html'"
+            "sudo apt-get update",
+            "sudo apt-get -y install httpd",
+            "sudo systemctl enable httpd",
+            "sudo systemctl start httpd",
+            "sudo bash -c 'echo \"To err is human, but to really foul things up you need a computer. - Paul R. Ehrlich\" >> /var/www/html/index.html'"
           ]
       },
       {
