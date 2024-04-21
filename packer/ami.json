@@ -36,12 +36,16 @@
         "associate_public_ip_address": true
       }
     ],
+    
+
     "provisioners": [
       {
           "type": "shell",
           "inline": [
               "sudo apt-get update",
-              "sudo apt-get install -y apache2"
+              "sudo apt-get install -y apache2",
+              "sudo systemctl enable apache2",
+              "sudo systemctl start apache2"
           ]
       }
   ]
