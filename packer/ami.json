@@ -47,6 +47,13 @@
               "sudo systemctl enable apache2",
               "sudo systemctl start apache2"
           ]
-      }
+      },
+      {
+        "type": "shell",
+        "inline": [
+            "sleep 30",
+            "sudo shutdown -h now"
+        ]
+    }
   ]
 }
