@@ -2,3 +2,4 @@
 
 #Terraform
 echo "Initalizing Terraform"
+terraform init
