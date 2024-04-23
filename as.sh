@@ -36,3 +36,5 @@ packer build -var "security_group_id=$security_group_id" -var 'clean_resource_na
 # Check if Packer build was successful
 if [ $? -eq 0 ]; then
     echo "Packer build completed successfully! Now destroying Terraform resources."
+    cd ..
+    terraform destroy -auto-approve
