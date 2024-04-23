@@ -34,3 +34,4 @@ packer build -var 'clean_resource_name=amazon-linux-ami' ami.json
 packer build -var "security_group_id=$security_group_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
 
 # Check if Packer build was successful
+if [ $? -eq 0 ]; then
