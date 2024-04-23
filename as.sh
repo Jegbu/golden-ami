@@ -14,6 +14,8 @@ else
     exit 1
 fi
 
+#Retrieve security group ID from Terraform output
+security_group_id=$(terraform output -raw security_group_id)
 
 # Packer
 echo "Running Packer build! Please be patient!"
