@@ -41,3 +41,4 @@ if [ $? -eq 0 ]; then
 else
     echo "Error: Packer build has failed :(. Terraform resources will not be destroyed."
     exit 1
+fi    
