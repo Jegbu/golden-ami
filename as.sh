@@ -6,6 +6,15 @@ terraform init
 echo "Applying Terraform configuration"
 terraform apply -auto-approve
 
+# Check if Terraform apply was successful
+if [ $? -eq 0 ]; then
+    echo "Terraform apply was successful. Proceeding with Packer build."
+else
+    echo "Error: Terraform apply failed. Exiting script."
+    exit 1
+fi
+
+
 # Packer
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
