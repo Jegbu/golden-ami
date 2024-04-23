@@ -39,6 +39,6 @@ if [ $? -eq 0 ]; then
     cd ..
     terraform destroy -auto-approve
 else
-    echo "Error: Packer build has failed :(. Terraform resources will not be destroyed."
+    echo "Error: Packer build has failed. :( Terraform resources will not be destroyed."
     exit 1
 fi    
