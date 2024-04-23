@@ -29,3 +29,6 @@ echo "Security group ID retrieved: $security_group_id"
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
 packer build -var 'clean_resource_name=amazon-linux-ami' ami.json
+
+# Pass security group ID as a variable to Packer
+packer build -var "security_group_id=$security_group_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
