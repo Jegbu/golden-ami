@@ -9,4 +9,4 @@ terraform apply -auto-approve
 # Packer
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
-packer build -var 'clean_resource_name=ami-0ce315e06ff440e6c' ami.json
+packer build -var 'clean_resource_name=amazon-linux-ami' ami.json
