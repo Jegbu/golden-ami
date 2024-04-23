@@ -5,3 +5,6 @@ echo "Initalizing Terraform"
 terraform init
 echo "Applying Terraform configuration"
 terraform apply -auto-approve
+
+# Packer
+echo "Running Packer build! Please be patient!"
