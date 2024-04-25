@@ -34,11 +34,10 @@ packer build -var 'clean_resource_name=amazon-linux-ami' ami.json
 packer build -var "security_group_id=$security_group_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
 
 # Check if Packer build was successful
-if [ $? -eq 0 ]; then
-    echo "Packer build completed successfully! :) Now destroying Terraform resources."
-    cd ..
-    terraform destroy -auto-approve
-else
-    echo "Error: Packer build has failed. :( Terraform resources will not be destroyed."
-    exit 1
-fi    
+#if [ $? -eq 0 ]; then
+  #   cd ..
+#    terraform destroy -auto-approve
+#else
+#    echo "Error: Packer build has failed. :( Terraform resources will not be destroyed."
+#    exit 1
+# fi    
