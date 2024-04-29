@@ -43,7 +43,7 @@ else
 fi
 
 #ami_id = AMI output
-ami_id=$(cat ami_output.txt | awk '/artifact/ {print $2}')
+ami_id=$(cat packer/ami_output.txt | awk '/artifact/ {print $2}')
 
 if [ -z "$ami_id" ]; then
     echo "Error: AMI ID is empty. Exiting script."
