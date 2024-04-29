@@ -51,6 +51,12 @@ if [ -z "$ami_id" ]; then
 fi
 
 
+if [ -z "$ami_id" ]; then
+    echo "Error: AMI ID is empty. Exiting script."
+    exit 1
+fi
+
+
 
 if [ -z "$ami_id" ]; then
     echo "Error: AMI ID is empty. Exiting script."
