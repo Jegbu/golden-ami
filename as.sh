@@ -57,7 +57,7 @@ cd packer || exit # Change directory to packer
 build_output=$(packer build -machine-readable ami.json)
 
 # Pass security group ID and subnet ID as variables to Packer
-packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
+packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var "clean_resource_name=amazon-linux-ami" ami.json
 
 # Check if Packer build was successful
 if [ $? -eq 0 ]; then
@@ -80,7 +80,7 @@ fi
 
 echo "AMI ID created: $ami_id"
 
-# Use AMI ID for EC2 instance creation
+# Use the specified AMI ID for EC2 instance creation
 aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
 
 # Check if EC2 instance creation was successful
