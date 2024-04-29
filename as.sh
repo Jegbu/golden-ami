@@ -30,6 +30,10 @@ echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
 build_output=$(packer build -machine-readable ami.json)
 
+# Pass security group ID as a variable to Packer
+packer build -var "security_group_id=$security_group_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
+
+
 # Check if Packer build was successful
 if [ $? -eq 0 ]; then
     echo "Packer build was successful. Proceeding to create EC2 instance."
