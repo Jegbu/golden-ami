@@ -17,7 +17,7 @@ fi
 #Retrieve security group ID from Terraform output
 security_group_id=$(terraform output -raw security_group_id)
 
- Check if security group ID is empty
+# Check if security group ID is empty
 if [ -z "$security_group_id" ]; then
     echo "Error: Security group ID is empty. Exiting script."
     exit 1
