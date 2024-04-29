@@ -48,6 +48,7 @@ if [ -z "$subnet_id" ]; then
     exit 1
 fi
 
+echo "Subnet ID for Public Subnet AZ1 in jegbu_vpc retrieved: $subnet_id"
 
 # Packer
 echo "Running Packer build! Please be patient!"
