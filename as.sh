@@ -48,7 +48,8 @@ fi
 echo "$build_output"
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | jq -r '.builds[-1].artifact_id')
+ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
+
 
 
 echo "AMI ID after retrieval: $ami_id"
