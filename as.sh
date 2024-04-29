@@ -40,6 +40,11 @@ if [ $? -eq 0 ]; then
 else
     echo "Error: Packer build has failed. Exiting script."
     exit 1    
+fi
+
+#ami_id = AMI output
+ami_id=$(cat ami_output.txt | awk '/artifact/ {print $2}')
+
 
 # Check if Packer build was successful
 #if [ $? -eq 0 ]; then 
