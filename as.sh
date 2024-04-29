@@ -45,6 +45,8 @@ else
     exit 1    
 fi
 
+echo "$build_output"
+
 # Retrieve AMI ID from Packer's output
 ami_id=$(echo "$build_output" | jq -r '.builds[-1].artifact_id')
 
