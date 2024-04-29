@@ -42,6 +42,12 @@ echo "VPC ID retrieved: $vpc_id"
 echo "Fetching Subnet ID for Public Subnet AZ1 in jegbu_vpc"
 subnet_id=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" "Name=tag:Name,Values=Public Subnet AZ1" --query "Subnets[0].SubnetId" --output text)
 
+# Check if Subnet ID is empty
+if [ -z "$subnet_id" ]; then
+    echo "Error: Subnet ID not found for Public Subnet AZ1 in jegbu_vpc. Exiting script."
+    exit 1
+fi
+
 
 # Packer
 echo "Running Packer build! Please be patient!"
