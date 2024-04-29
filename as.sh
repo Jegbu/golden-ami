@@ -35,6 +35,8 @@ if [ -z "$vpc_id" ]; then
     exit 1
 fi
 
+echo "VPC ID retrieved: $vpc_id"
+
 # Packer
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
