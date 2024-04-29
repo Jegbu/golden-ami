@@ -42,8 +42,8 @@ else
     exit 1    
 fi
 
-#ami_id = AMI output
-ami_id=$(cat packer/ami_output.txt | awk '/artifact/ {print $2}')
+# Retrieve AMI ID from Packer's output
+ami_id=$(packer build -machine-readable ami.json | awk -F ',' '$0 ~/artifact,0,id/ {print $6}')
 
 if [ -z "$ami_id" ]; then
     echo "Error: AMI ID is empty. Exiting script."
