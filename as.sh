@@ -49,6 +49,8 @@ if [ -z "$ami_id" ]; then
     echo "Error: AMI ID is empty. Exiting script."
     exit 1
 fi
+
+echo "AMI ID created: $ami_id"
 # Check if Packer build was successful
 #if [ $? -eq 0 ]; then 
 #    cd ..
