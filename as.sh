@@ -25,6 +25,10 @@ fi
 
 echo "Security group ID retrieved: $security_group_id"
 
+# Fetch VPC ID using AWS CLI
+echo "Fetching VPC ID for jegbu_vpc"
+vpc_id=$(aws ec2 describe-vpcs --filters "Name=tag:Name,Values=jegbu_vpc" --query 'Vpcs[0].VpcId' --output text)
+
 # Packer
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
