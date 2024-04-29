@@ -29,6 +29,12 @@ echo "Security group ID retrieved: $security_group_id"
 echo "Fetching VPC ID for jegbu_vpc"
 vpc_id=$(aws ec2 describe-vpcs --filters "Name=tag:Name,Values=jegbu_vpc" --query 'Vpcs[0].VpcId' --output text)
 
+# Check if VPC ID is empty
+if [ -z "$vpc_id" ]; then
+    echo "Error: VPC ID not found for jegbu_vpc. Exiting script."
+    exit 1
+fi
+
 # Packer
 echo "Running Packer build! Please be patient!"
 cd packer # Change directory to packer
