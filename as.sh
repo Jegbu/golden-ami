@@ -25,6 +25,7 @@ fi
 
 echo "Security group ID retrieved: $security_group_id"
 
+
 # Fetch VPC ID using AWS CLI
 echo "Fetching VPC ID for jegbu_vpc"
 vpc_id=$(aws ec2 describe-vpcs --filters "Name=tag:Name,Values=jegbu_vpc" --query 'Vpcs[0].VpcId' --output text)
@@ -36,6 +37,11 @@ if [ -z "$vpc_id" ]; then
 fi
 
 echo "VPC ID retrieved: $vpc_id"
+
+# Fetching subnet ID for "Public Subnet AZ1" in "jegbu_vpc"
+echo "Fetching Subnet ID for Public Subnet AZ1 in jegbu_vpc"
+subnet_id=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$vpc_id" "Name=tag:Name,Values=Public Subnet AZ1" --query "Subnets[0].SubnetId" --output text)
+
 
 # Packer
 echo "Running Packer build! Please be patient!"
