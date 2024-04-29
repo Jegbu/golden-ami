@@ -53,7 +53,7 @@ echo "Subnet ID for Public Subnet AZ1 in jegbu_vpc retrieved: $subnet_id"
 
 # Packer
 echo "Running Packer build! Please be patient!"
-cd packer || exit # Change directory to packer
+# cd packer || exit # Change directory to packer
 
 # Build the AMI with Packer
 build_output=$(packer build -machine-readable ami.json)
@@ -81,6 +81,7 @@ build_output=$(packer build -machine-readable ami.json)
 echo "AMI ID created: $ami_id"
 
 # Deloy ec2 instance with Terraform
+pwd
 cd ec2
 echo "Initializing Terraform"
 terraform init
