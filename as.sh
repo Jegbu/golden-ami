@@ -80,11 +80,11 @@ echo "AMI ID created: $ami_id"
 
 # Deloy ec2 instance with Terraform
 #cd ec2
-echo "Initializing Terraform"
-terraform init
-echo "Applying Terraform configuration"
-terraform apply -auto-approve
-cd ..
+#echo "Initializing Terraform"
+#terraform init
+#echo "Applying Terraform configuration"
+#terraform apply -auto-approve
+#cd ..
 
 # Use AMI ID for EC2 instance creation
 # aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
