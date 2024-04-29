@@ -79,7 +79,7 @@ fi
 echo "AMI ID created: $ami_id"
 
 # Deloy ec2 instance with Terraform
-cd ec2
+#cd ec2
 echo "Initializing Terraform"
 terraform init
 echo "Applying Terraform configuration"
