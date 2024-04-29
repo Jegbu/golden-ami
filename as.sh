@@ -68,7 +68,7 @@ else
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | grep -oP '(?<=artifact,0,id,) ami-\w+')
+ami_id=$(echo "$build_output" | grep -o 'ami-[a-zA-Z0-9]\+')
 
 echo "AMI ID after retrieval: $ami_id"
 
