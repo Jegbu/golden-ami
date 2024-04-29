@@ -46,7 +46,8 @@ else
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | awk -F ',' '/artifact,0,id/ {print $6}')
+ami_id=$(echo "$build_output" | awk '/artifact,0,id/ {split($0,a,","); print a[6]}')
+
 
 echo "AMI ID after retrieval: $ami_id"
 
