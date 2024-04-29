@@ -53,44 +53,27 @@ echo "Subnet ID for Public Subnet AZ1 in jegbu_vpc retrieved: $subnet_id"
 
 # Packer
 echo "Running Packer build! Please be patient!"
-# cd packer || exit # Change directory to packer
+cd packer || exit # Change directory to packer
 
 # Build the AMI with Packer
 build_output=$(packer build -machine-readable ami.json)
 
 # Pass security group ID and subnet ID as variables to Packer
-# packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
+packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
 
 # Check if Packer build was successful
-# if [ $? -ne 0 ]; then
- #   echo "Error: Packer build has failed. Exiting script."
-  #  exit 1
-# fi
-
-# Retrieve AMI ID from Packer's output
-# ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
-
-# echo "AMI ID after retrieval: $ami_id"
-
-# Check if AMI ID is empty
-# if [ -z "$ami_id" ]; then
-  #  echo "Error: AMI ID is empty. Exiting script."
-   # exit 1
-# fi
-
-echo "AMI ID created: $ami_id"
+if [ $? -ne 0 ]; then
+   echo "Error: Packer build has failed. Exiting script."
+   exit 1
+fi
 
 # Deloy ec2 instance with Terraform
-pwd
 cd ec2
 echo "Initializing Terraform"
 terraform init
 echo "Applying Terraform configuration"
 terraform apply -auto-approve
 cd ..
-
-# Use AMI ID for EC2 instance creation
-# aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
 
 # Check if EC2 instance creation was successful
 if [ $? -ne 0 ]; then
