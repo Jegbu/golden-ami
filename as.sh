@@ -43,7 +43,8 @@ else
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(packer build -machine-readable ami.json | awk -F ',' '$0 ~/artifact,0,id/ {print $6}')
+ami_id=$(echo "$build_output" | awk -F ',' '$0 ~/artifact,0,id/ {print $6}')
+
 
 if [ -z "$ami_id" ]; then
     echo "Error: AMI ID is empty. Exiting script."
