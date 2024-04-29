@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Terraform
+# Deploy VPC with Terraform
+cd vpc
 echo "Initializing Terraform"
 terraform init
 echo "Applying Terraform configuration"
 terraform apply -auto-approve
+cd ..
 
 # Check if Terraform apply was successful
 if [ $? -ne 0 ]; then
@@ -64,20 +66,28 @@ if [ $? -ne 0 ]; then
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
+# ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
 
-echo "AMI ID after retrieval: $ami_id"
+# echo "AMI ID after retrieval: $ami_id"
 
 # Check if AMI ID is empty
-if [ -z "$ami_id" ]; then
-    echo "Error: AMI ID is empty. Exiting script."
-    exit 1
-fi
+# if [ -z "$ami_id" ]; then
+  #  echo "Error: AMI ID is empty. Exiting script."
+   # exit 1
+# fi
 
 echo "AMI ID created: $ami_id"
 
+# Deloy ec2 instance with Terraform
+cd ec2
+echo "Initializing Terraform"
+terraform init
+echo "Applying Terraform configuration"
+terraform apply -auto-approve
+cd ..
+
 # Use AMI ID for EC2 instance creation
-aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
+# aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
 
 # Check if EC2 instance creation was successful
 if [ $? -ne 0 ]; then
