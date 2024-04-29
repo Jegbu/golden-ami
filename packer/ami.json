@@ -2,6 +2,7 @@
     "builders": [
       {
         "type": "amazon-ebs",
+        "force_deregister": true,
         "vpc_filter": {
           "filters": {
             "tag:Name": "jegbu_vpc"
