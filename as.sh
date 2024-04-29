@@ -56,9 +56,6 @@ cd packer || exit # Change directory to packer
 # Build the AMI with Packer
 build_output=$(packer build -machine-readable ami.json)
 
-# Debug statement to print Packer build output
-echo "Packer build output: $build_output"
-
 # Pass security group ID and subnet ID as variables to Packer
 packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
 
