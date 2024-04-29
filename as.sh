@@ -43,7 +43,14 @@ else
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | grep 'artifact,0,id' | cut -d ',' -f 6)
+ami_id=$(echo "$build_output" | awk -F ',' '/artifact,0,id/ {print $6}')
+
+# Check if AMI ID is empty
+if [ -z "$ami_id" ]; then
+    echo "Error: AMI ID is empty. Exiting script."
+    exit 1
+fi
+
 
 
 echo "AMI ID created: $ami_id"
