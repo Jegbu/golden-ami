@@ -59,13 +59,13 @@ cd packer || exit # Change directory to packer
 build_output=$(packer build -machine-readable ami.json)
 
 # Pass security group ID and subnet ID as variables to Packer
-packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
+# packer build -var "security_group_id=$security_group_id" -var "subnet_id=$subnet_id" -var 'clean_resource_name=amazon-linux-ami' ami.json
 
 # Check if Packer build was successful
-if [ $? -ne 0 ]; then
-    echo "Error: Packer build has failed. Exiting script."
-    exit 1
-fi
+# if [ $? -ne 0 ]; then
+ #   echo "Error: Packer build has failed. Exiting script."
+  #  exit 1
+# fi
 
 # Retrieve AMI ID from Packer's output
 # ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
