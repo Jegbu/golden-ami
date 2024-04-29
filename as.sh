@@ -51,6 +51,10 @@ if [ -z "$ami_id" ]; then
 fi
 
 echo "AMI ID created: $ami_id"
+
+# Use AMI ID for ec2 instance
+aws ec2 run-instances --image-id $ami_id --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids $security_group_id
+
 # Check if Packer build was successful
 #if [ $? -eq 0 ]; then 
 #    cd ..
