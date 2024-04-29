@@ -6,7 +6,7 @@ echo "Initializing Terraform"
 terraform init
 echo "Applying Terraform configuration"
 terraform apply -auto-approve
-cd ..
+
 
 # Check if Terraform apply was successful
 if [ $? -ne 0 ]; then
@@ -16,6 +16,8 @@ fi
 
 # Retrieve security group ID from Terraform output
 security_group_id=$(terraform output -raw security_group_id)
+
+cd ..
 
 # Check if security group ID is empty
 if [ -z "$security_group_id" ]; then
