@@ -67,6 +67,8 @@ if [ $? -ne 0 ]; then
    exit 1
 fi
 
+cd ..
+
 # Deloy ec2 instance with Terraform
 cd ec2
 echo "Initializing Terraform"

@@ -25,6 +25,7 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.custom.id
   instance_type = "t2.micro"
   subnet_id     = data.aws_subnet.this.id
+  associate_public_ip_address = "true"
   tags = {
     Name = "apache"
   }
