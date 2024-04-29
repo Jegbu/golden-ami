@@ -37,6 +37,9 @@ packer build -var "security_group_id=$security_group_id" -var 'clean_resource_na
 # Check if Packer build was successful
 if [ $? -eq 0 ]; then
     echo "Packer build was successful. Proceeding to create EC2 instance."
+else
+    echo "Error: Packer build has failed. Exiting script."
+    exit 1    
 
 # Check if Packer build was successful
 #if [ $? -eq 0 ]; then 
