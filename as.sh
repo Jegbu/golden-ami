@@ -68,7 +68,7 @@ else
 fi
 
 # Retrieve AMI ID from Packer's output
-ami_id=$(echo "$build_output" | grep -oE 'ami-[a-zA-Z0-9]{17}')
+ami_id=$(echo "$build_output" | grep -oP '(?<=artifact,0,id,) ami-\w+')
 
 echo "AMI ID after retrieval: $ami_id"
 
@@ -82,7 +82,6 @@ echo "AMI ID created: $ami_id"
 
 # Use the specified AMI ID for EC2 instance creation
 aws ec2 run-instances --image-id "$ami_id" --count 1 --instance-type t2.micro --key-name myec2key --security-group-ids "$security_group_id" --subnet-id "$subnet_id" --associate-public-ip-address
-
 # Check if EC2 instance creation was successful
 if [ $? -eq 0 ]; then
     echo "EC2 instance created successfully! Good to go! :)"
